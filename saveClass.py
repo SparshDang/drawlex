@@ -1,5 +1,6 @@
 from PIL import Image
 from tkinter.filedialog import asksaveasfilename
+from tkinter.messagebox import showerror
 
 
 class Save():
@@ -14,7 +15,11 @@ class Save():
                         img.putpixel((pixel.column*10+i, pixel.row*10+j), pixel.color)
 
 
-        fileName = asksaveasfilename(filetypes=( ("Image Files", "*.png *.jpg *.jpeg"),))
+        fileName = asksaveasfilename(filetypes=( ("Image Files", "*.png *.jpg *.jpeg"),), defaultextension="png")
+
         if fileName:
-            img.save(fileName)
-            img.show()
+            try:
+                img.save(fileName)
+                img.show()
+            except:
+                showerror("Extention", "Wrong Extension")

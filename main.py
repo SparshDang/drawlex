@@ -17,8 +17,8 @@ class Main():
         pygame.display.set_caption("Drawlex")
 
         self.grid = []
-        self.rows = 20
-        self.columns = 20
+        self.rows = 32
+        self.columns = 32
         self.__set_grid()
 
         self.color_box = ColorBox()
